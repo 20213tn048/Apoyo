@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.service.UserService;
 import com.example.demo.utils.CustomResponse;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/usuarios")
 @CrossOrigin(origins = {"*"})
@@ -26,7 +28,7 @@ public class UserController {
     }
 
     @PostMapping("/addUser")
-    public ResponseEntity<CustomResponse> addNewUser(@RequestBody UserDTO userDTO){
+    public ResponseEntity<CustomResponse> addNewUser(@Valid @RequestBody UserDTO userDTO){
         CustomResponse response = this.userService.saveUser(userDTO);
         return ResponseEntity.status(response.getHttpStatusCode()).body(response);
     }

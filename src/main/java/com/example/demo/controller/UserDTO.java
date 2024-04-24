@@ -18,7 +18,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 @NoArgsConstructor
 public class UserDTO {
-    private Long id;
 
     @Pattern(regexp = "^[a-zA-ZñÑ ]+$", message = "El nombre no debe de contener caracteres especiales")
     @Length(max = 30, message = "El nombre no debe de pasar de 30 caractéres")
